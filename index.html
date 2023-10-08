@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color: aliceblue;
+            background-color: black;
+            display: flex;
+            height: 90vh;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            border: solid;   
+            width: 16rem; 
+            padding: 2rem;
+            flex-direction: column;
+        }
+        lable{
+            padding-top: 1rem;
+        }
+        input{
+            width: 15rem;
+            height: 2rem;
+            font-size: 1rem;
+            border-radius: 0.4rem;
+        }
+        input[type="number"] {
+            margin: 1rem 0;
+        }
+
+        h1{
+            background-color: rgb(179, 94, 63);
+        }
+
+        button{
+            background-color: fuchsia;
+            width: 6rem;
+            height: 2rem;
+            border-radius: 2rem;
+        }
+
+    </style>
+</head>
+<body>
+    <form>
+        <label for="number">First Number</label> <br>
+        <input type="number" name="first number" id="num1"><br>
+        <label for="number">Second Number</label> <br>
+        <input type="number" name="second number" id="num2"> <br>
+        <button type="button" id="calculate">Submit</button>
+        <p>The total is </p>
+        <h1 id="ans"></h1>
+    </form>
+    <script>
+        document.getElementById('calculate').addEventListener('click', function() {
+            let num1 = parseInt(document.getElementById('num1').value);
+            let num2 = parseInt(document.getElementById('num2').value);
+
+            let product = num1 * num2;
+            let totalElement = document.getElementById('ans');
+            let total = parseInt(totalElement.textContent) || 0;
+            total += product;
+
+            totalElement.textContent = total;
+        });
+    </script>
+</body>
+</html>
